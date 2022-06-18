@@ -11,16 +11,23 @@ class Solution {
             
             for (int j=0; j<coins.length; j++) {
                 
-                if (i - coins[j] < 0) {
+                int countIndex = i - coins[j];
+                
+                if (countIndex < 0) {
                     continue;
                 }
                 
-                if (count[i - coins[j]] == Integer.MAX_VALUE) {
-                    count[i - coins[j]] -= 1;
+                int minCoinChange = 0;
+                
+                if (count[countIndex] == Integer.MAX_VALUE) {
+                    minCoinChange = Integer.MAX_VALUE;
+                } else {
+                    minCoinChange = count[countIndex] + 1;
                 }
                 
-                minValue = Integer.min(minValue, count[i - coins[j]] + 1);
+                minValue = Integer.min(minValue, minCoinChange);
             }
+            
             count[i] = minValue;
         }
         
