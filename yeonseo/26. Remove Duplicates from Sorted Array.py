@@ -5,8 +5,8 @@ class Solution:
         
         i=0 
         for j in range(1,len(nums)):
-            if nums[i]!=nums[j]: # If not duplicated
-                i+=1  # Move i
-                nums[i]=nums[j] # Swap
+            if nums[i]!=nums[j]:
+                i+=1  
+                nums[i]=nums[j]
         
         return i+1
